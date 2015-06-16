@@ -1,0 +1,23 @@
+{
+  "name": "ratings-bot",
+  "version": "1.0.0",
+  "description": "A bot for the ratings slack",
+  "main": "app.js",
+  "scripts": {
+    "test": "/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwcolem/node.git"
+  },
+  "author": "mwcolem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwcolem/node/issues"
+  },
+  "dependencies": {
+    "express": "^4.x.x",
+    "body-parser": "^1.x.x"
+  },
+  "homepage": "https://github.com/mwcolem/node#readme"
+}
