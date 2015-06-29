@@ -28,7 +28,7 @@ module.exports = function (req, res, next) {
           }
           botPayload = {
             "text" : search,
-            "username" : 'googlerbot'
+            "username" : 'googlerbot',
             "unfurl_links": true
           };
         } else {
