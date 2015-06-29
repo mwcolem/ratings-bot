@@ -15,19 +15,26 @@ module.exports = function (req, res, next) {
       case ('weather'):
         botPayload = {
           "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
-          "user_name" : 'weatherbot'
+          "username" : 'weatherbot'
         };
         break;
       case ('google'):
-        var search = 'https://www.google.com/?gws_rd=ssl#q=' + commandArr[2];
+        if (commandArr[2] != undefined) {
+          var search = 'https://www.google.com/?gws_rd=ssl#q=' + commandArr[2];
 
-        for (var i=3; i<commandArr.length; i++) {
-          search += "+" + commandArr[i]
+          for (var i=3; i<commandArr.length; i++) {
+            search += "+" + commandArr[i]
+          }
+          botPayload = {
+            "text" : search,
+            "username" : 'googlerbot'
+          };
+        } else {
+          botPayload = {
+            "text" : "Please enter the words to search after the google command",
+            "username" : 'googlerbot'
+          };
         }
-        botPayload = {
-          "text" : search,
-          "user_name" : 'googlerbot'
-        };
         break;
       default:
         botPayload = {
