@@ -8,16 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mwcolem/node.git"
+    "url": "git+https://github.com/mwcolem/ratings-bot.git"
   },
   "author": "mwcolem",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mwcolem/node/issues"
+    "url": "https://github.com/mwcolem/ratings-bot/issues"
   },
   "dependencies": {
     "express": "^4.x.x",
-    "body-parser": "^1.x.x"
+    "body-parser": "^1.x.x",
+    "request": "^1.x.x"
   },
-  "homepage": "https://github.com/mwcolem/node#readme"
+  "homepage": "https://github.com/mwcolem/ratings-bot#readme"
 }
