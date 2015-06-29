@@ -15,7 +15,8 @@ module.exports = function (req, res, next) {
       case ('weather'):
         botPayload = {
           "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
-          "username" : 'weatherbot'
+          "username" : 'weatherbot',
+          "unfurl_links": true
         };
         break;
       case ('google'):
@@ -28,6 +29,7 @@ module.exports = function (req, res, next) {
           botPayload = {
             "text" : search,
             "username" : 'googlerbot'
+            "unfurl_links": true
           };
         } else {
           botPayload = {
@@ -38,7 +40,7 @@ module.exports = function (req, res, next) {
         break;
       default:
         botPayload = {
-          "text" : 'Hello ' + userName + '. Command ' + commandArr[1] + ' not recognized.'
+          "text" : 'Hello ' + userName + '. Command "' + commandArr[1] + '" not recognized.'
         };
     }    
   }
