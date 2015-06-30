@@ -19,6 +19,18 @@ module.exports = function (req, res, next) {
           "unfurl_links" : true,
           "icon_emoji" : ":sunny:"
         };
+        botPayload = {
+          "username" : 'weatherbot',
+          "icon_emoji" : ":sunny:",
+          "attachments" : [
+            {
+              "fallback" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
+              "color" : "good",
+              "title" : "Sparc weather"
+              "title_link" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
+            }
+          ]
+        };
         break;
       case ('google'):
         if (commandArr[2] != undefined) {
