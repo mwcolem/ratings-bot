@@ -13,23 +13,11 @@ module.exports = function (req, res, next) {
         };
         break;
       case ('weather'):
-        // botPayload = {
-        //   "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
-        //   "username" : 'weatherbot',
-        //   "unfurl_links" : true,
-        //   "icon_emoji" : ":sunny:"
-        // };
         botPayload = {
-          // "username" : "weatherbot",
-          // "icon_emoji" : ":sunny:",
-          "attachments" : [
-            {
-              "fallback" : "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27",
-              "color" : "good",
-              "title" : "Sparc weather",
-              "title_link" : "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27"
-            }
-          ]
+          "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
+          "username" : 'weatherbot',
+          "unfurl_links" : true,
+          "icon_emoji" : ":sunny:"
         };
         break;
       case ('google'):
