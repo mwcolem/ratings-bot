@@ -41,7 +41,7 @@ module.exports = function (req, res, next) {
         break;
       default:
         botPayload = {
-          "text" : 'Hello ' + userName + '. Command "' + commandArr[1] + '" not recognized.'
+          "text" : 'Hello ' + userName + '. Command "' + commandArr[1] + '" not recognized.',
           "icon_emoji" : ":taco:"
         };
     }    
