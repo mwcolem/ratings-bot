@@ -13,12 +13,12 @@ module.exports = function (req, res, next) {
         };
         break;
       case ('weather'):
-        botPayload = {
-          "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
-          "username" : 'weatherbot',
-          "unfurl_links" : true,
-          "icon_emoji" : ":sunny:"
-        };
+        // botPayload = {
+        //   "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
+        //   "username" : 'weatherbot',
+        //   "unfurl_links" : true,
+        //   "icon_emoji" : ":sunny:"
+        // };
         botPayload = {
           "username" : 'weatherbot',
           "icon_emoji" : ":sunny:",
