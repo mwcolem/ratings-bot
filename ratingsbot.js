@@ -16,7 +16,8 @@ module.exports = function (req, res, next) {
         botPayload = {
           "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
           "username" : 'weatherbot',
-          "unfurl_links": true
+          "unfurl_links" : true,
+          "icon_emoji" : ":sunny:"
         };
         break;
       case ('google'):
@@ -41,6 +42,7 @@ module.exports = function (req, res, next) {
       default:
         botPayload = {
           "text" : 'Hello ' + userName + '. Command "' + commandArr[1] + '" not recognized.'
+          "icon_emoji" : ":taco:"
         };
     }    
   }
