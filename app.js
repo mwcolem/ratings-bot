@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var request = require('request');
 
 var ratingsbot = require('./ratingsbot');
-var basebot = require('.basebot');
  
 var app = express();
 var port = process.env.PORT || 3000;
