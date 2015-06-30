@@ -20,8 +20,8 @@ module.exports = function (req, res, next) {
         //   "icon_emoji" : ":sunny:"
         // };
         botPayload = {
-          "username" : "weatherbot",
-          "icon_emoji" : ":sunny:",
+          // "username" : "weatherbot",
+          // "icon_emoji" : ":sunny:",
           "attachments" : [
             {
               "fallback" : "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27",
