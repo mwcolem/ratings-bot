@@ -7,15 +7,15 @@ module.exports = function (req, res, next) {
     var commandArr = command.split(" ");
 
     if (userName.match("twitter")) {
-      if (commandArr[1].match("(.*)I-26(.*)") || 
-        commandArr[1].match("(.*)I-526(.*)")) {
+      // if (commandArr[1].match("(.*)I-26(.*)") || 
+        // commandArr[1].match("(.*)I-526(.*)")) {
         botPayload = {
           "username" : "trafficbot",
           "icon_emoji" : ":truck:",
           // "channel" : "general",
           "text" : command
         };
-      }
+      // }
     }
     else {
       switch(commandArr[1]) {
