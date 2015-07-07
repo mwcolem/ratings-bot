@@ -3,7 +3,7 @@ module.exports = function (req, res, next) {
   var command = req.body.text;
   var botPayload;
 
-  if (command != undefined) {
+  if (command !== undefined) {
     var commandArr = command.split(" ");
 
     if (userName.match("twitter")) {
@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
           "icon_emoji" : ":truck:",
           // "channel" : "general",
           "text" : command
-        }
+        };
       }
     }
     else {
@@ -33,11 +33,11 @@ module.exports = function (req, res, next) {
           };
           break;
         case ('google'):
-          if (commandArr[2] != undefined) {
+          if (commandArr[2] !== undefined) {
             var search = 'https://www.google.com/?gws_rd=ssl#q=' + commandArr[2];
 
             for (var i=3; i<commandArr.length; i++) {
-              search += "+" + commandArr[i]
+              search += "+" + commandArr[i];
             }
             botPayload = {
               "text" : search,
@@ -66,4 +66,4 @@ module.exports = function (req, res, next) {
   } else {
     return res.status(200).end();
   }
-}
+};
