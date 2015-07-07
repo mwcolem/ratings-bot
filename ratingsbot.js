@@ -1,4 +1,6 @@
 module.exports = function (req, res, next) {
+  var HttpStatus = require('http-status-codes');
+
   var userName = req.body.user_name;
   var command = req.body.text;
   var botPayload;
@@ -62,8 +64,8 @@ module.exports = function (req, res, next) {
  
   // avoid infinite loop
   if (userName !== 'slackbot') {
-    return res.status(200).json(botPayload);
+    return res.status(HttpStatus.OK).json(botPayload);
   } else {
-    return res.status(200).end();
+    return res.status(HttpStatus.OK).end();
   }
 };

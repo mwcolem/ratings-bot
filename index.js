@@ -2,7 +2,7 @@ var server = require('express')();
 var bodyParser = require('body-parser');
 var HttpStatus = require('http-status-codes');
 
-var ratingsbot = require('./ratingsbot.min');
+var ratingsbot = require('./ratingsbot');
 
 var port = process.env.PORT || 3000;
 
@@ -18,7 +18,7 @@ server.post('/ratingsbot', ratingsbot);
 // error handler
 server.use(function (err, req, res, next) {
     console.error(err.stack);
-    res.status(HttpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+    res.status(HttpStatus.BAD_REQUEST).send(err.message);
 });
 
 server.listen(port, function () {
