@@ -7,58 +7,44 @@ module.exports = function (req, res, next) {
 
   if (command !== undefined) {
     var commandArr = command.split(" ");
-
-    if (userName.match("twitter")) {
-      // if (commandArr[1].match("(.*)I-26(.*)") || 
-        // commandArr[1].match("(.*)I-526(.*)")) {
+    switch(commandArr[1]) {
+      case ('hello'):
         botPayload = {
-          "username" : "trafficbot",
-          "icon_emoji" : ":truck:",
-          // "channel" : "general",
-          "text" : command
+          "text" : 'Hello ' + userName + '!'
         };
-      // }
-    }
-    else {
-      switch(commandArr[1]) {
-        case ('hello'):
-          botPayload = {
-            "text" : 'Hello ' + userName + '!'
-          };
-          break;
-        case ('weather'):
-          botPayload = {
-            "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
-            "username" : 'weatherbot',
-            "unfurl_links" : true,
-            "icon_emoji" : ":sunny:"
-          };
-          break;
-        case ('google'):
-          if (commandArr[2] !== undefined) {
-            var search = 'https://www.google.com/?gws_rd=ssl#q=' + commandArr[2];
+        break;
+      case ('weather'):
+        botPayload = {
+          "text" : 'http://www.wunderground.com/cgi-bin/findweather/getForecast?query=pws:KSCMOUNT27',
+          "username" : 'weatherbot',
+          "unfurl_links" : true,
+          "icon_emoji" : ":sunny:"
+        };
+        break;
+      case ('google'):
+        if (commandArr[2] !== undefined) {
+          var search = 'https://www.google.com/?gws_rd=ssl#q=' + commandArr[2];
 
-            for (var i=3; i<commandArr.length; i++) {
-              search += "+" + commandArr[i];
-            }
-            botPayload = {
-              "text" : search,
-              "username" : 'googlerbot',
-              "unfurl_links": true
-            };
-          } else {
-            botPayload = {
-              "text" : "Please enter the words to search after the google command",
-              "username" : 'googlerbot'
-            };
+          for (var i=3; i<commandArr.length; i++) {
+            search += "+" + commandArr[i];
           }
-          break;
-        default:
           botPayload = {
-            "text" : 'Hello ' + userName + '. Command "' + commandArr[1] + '" not recognized.',
-            "icon_emoji" : ":taco:"
+            "text" : search,
+            "username" : 'googlerbot',
+            "unfurl_links": true
           };
-      }
+        } else {
+          botPayload = {
+            "text" : "Please enter the words to search after the google command",
+            "username" : 'googlerbot'
+          };
+        }
+        break;
+      default:
+        botPayload = {
+          "text" : 'Hello ' + userName + '. Command "' + commandArr[1] + '" not recognized.',
+          "icon_emoji" : ":taco:"
+        };
     }    
   }
  
