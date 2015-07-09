@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "^4.x.x",
     "body-parser": "^1.x.x",
-    "http-status-codes": "^1.x.x"
+    "http-status-codes": "^1.x.x",
+    "twitter": "^1.x.x"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
