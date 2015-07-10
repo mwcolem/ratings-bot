@@ -31,12 +31,11 @@ client.get('statuses/user_timeline', params, function(error, tweet, response){
   }
 });
 
-// test route
+server.post('/ratingsbot', ratingsbot);
+
 server.all('/', function (req, res) {
     res.status(HttpStatus.OK).send('Hello world!');
 });
-
-server.post('/ratingsbot', ratingsbot);
 
 // error handler
 server.use(function (err, req, res, next) {
