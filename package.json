@@ -30,7 +30,6 @@
     "url": "git+https://github.com/mwcolem/ratings-bot.git"
   },
   "scripts": {
-    "web": "node index.js",
     "start" : "node index.js"
   }
   "bugs": {
