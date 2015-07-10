@@ -25,8 +25,8 @@ server.use(bodyParser.urlencoded({extended: true}));
 client.get('statuses/user_timeline', params, function(error, tweet, response){
   if (!error) {
     // console.log(tweet);
-    // server.post(twitterbot);
-    console.log(twitterbot(tweet));
+    server.post(twitterbot);
+    // console.log(twitterbot(tweet));
   }
 });
 
