@@ -8,6 +8,7 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.x.x",
+    "event-stream": "^3.3.1",
     "express": "^4.x.x",
     "http-status-codes": "^1.x.x",
     "request": "^2.58.0",

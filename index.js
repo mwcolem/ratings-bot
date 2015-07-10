@@ -23,6 +23,19 @@ var client = new Twitter({
 var params = {screen_name: 'SCDOTLowCountry',
 			  count: '1'};
 
+function send (payload, callback) {
+  request({
+    uri: outgoingHook,
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }, function (error, response, body) {
+    if (error && callback) {
+      return callback(error);
+    }
+    // callback(null, response.statusCode, body);
+  });
+}
+
 server.use(bodyParser.urlencoded({extended: true}));
 
 client.get('statuses/user_timeline', params, function(error, tweet, response){
@@ -37,7 +50,6 @@ server.all('/', function (req, res) {
     res.status(HttpStatus.OK).send('Hello world!');
 });
 
-// error handler
 server.use(function (err, req, res, next) {
     console.error(err.stack);
     res.status(HttpStatus.BAD_REQUEST).send(err.message);
@@ -46,16 +58,3 @@ server.use(function (err, req, res, next) {
 server.listen(port, function () {
     console.log('Slack bot listening on port ' + port);
 });
-
-function send (payload, callback) {
-  request({
-    uri: outgoingHook,
-    method: 'POST',
-    body: JSON.stringify(payload)
-  }, function (error, response, body) {
-    if (error) {
-      return callback(error);
-    }
-    // callback(null, response.statusCode, body);
-  });
-}
