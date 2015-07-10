@@ -7,9 +7,10 @@
   "license": "ISC",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.x.x",
     "body-parser": "^1.x.x",
+    "express": "^4.x.x",
     "http-status-codes": "^1.x.x",
+    "request": "^2.58.0",
     "twitter": "^1.x.x"
   },
   "devDependencies": {
@@ -30,7 +31,7 @@
     "url": "git+https://github.com/mwcolem/ratings-bot.git"
   },
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js"
   },
   "bugs": {
     "url": "https://github.com/mwcolem/ratings-bot/issues"
