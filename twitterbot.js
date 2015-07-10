@@ -6,7 +6,7 @@ module.exports = function (tweet, res) {
   botPayload = {
   	"username" : "trafficbot",
   	"icon_emoji" : ":truck:",
-  	"channel" : "bot-testing",
+  	"channel" : "#bot-testing",
   	"text" : botText
   };
 
