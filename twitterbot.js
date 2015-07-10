@@ -1,4 +1,4 @@
-module.exports = function (tweet) {
+module.exports = function (tweet, res) {
   var HttpStatus = require('http-status-codes');
   var botPayload;
   var botText = tweet[0].text;
@@ -10,5 +10,5 @@ module.exports = function (tweet) {
   	"text" : botText
   };
 
-  return botPayload;
+  return res.status(HttpStatus.OK).json(botPayload);
 };
