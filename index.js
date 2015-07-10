@@ -1,12 +1,15 @@
 var server = require('express')();
 var bodyParser = require('body-parser');
 var HttpStatus = require('http-status-codes');
+var request = require('request');
 
 var ratingsbot = require('./ratingsbot');
 var twitterbot = require('./twitterbot');
 
 var Twitter = require('twitter');
 var es = require('event-stream');
+
+var outgoingHook = 'https://hooks.slack.com/services/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';
 
 var port = process.env.PORT || 3000;
 
@@ -24,9 +27,7 @@ server.use(bodyParser.urlencoded({extended: true}));
 
 client.get('statuses/user_timeline', params, function(error, tweet, response){
   if (!error) {
-    // console.log(tweet);
-    server.post('/ratingsbot', twitterbot);
-    // console.log(twitterbot(tweet));
+  	send(twitterbot(tweet));
   }
 });
 
@@ -46,3 +47,16 @@ server.use(function (err, req, res, next) {
 server.listen(port, function () {
     console.log('Slack bot listening on port ' + port);
 });
+
+function send (payload, callback) {
+  request({
+    uri: outgoingHook,
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }, function (error, response, body) {
+    if (error) {
+      return callback(error);
+    }
+    // callback(null, response.statusCode, body);
+  });
+}

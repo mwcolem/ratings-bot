@@ -1,7 +1,7 @@
-module.exports = function (tweet, res) {
+module.exports = function (req, res, next) {
   var HttpStatus = require('http-status-codes');
   var botPayload;
-  var botText = tweet[0].text;
+  var botText = req[0].text;
 
   botPayload = {
   	"username" : "trafficbot",
@@ -10,5 +10,5 @@ module.exports = function (tweet, res) {
   	"text" : botText
   };
 
-  return res.status(HttpStatus.OK).json(botPayload);
+  return botPayload;
 };
