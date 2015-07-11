@@ -23,6 +23,8 @@ var client = new Twitter({
 var params = {screen_name: 'SCDOTLowCountry',
 			  count: '1'};
 
+var lastTweetID = 1161383256;
+
 function send (payload, callback) {
   request({
     uri: outgoingHook,
@@ -40,7 +42,10 @@ server.use(bodyParser.urlencoded({extended: true}));
 
 client.get('statuses/user_timeline', params, function(error, tweet, response){
   if (!error) {
-  	send(twitterbot(tweet));
+    if (tweet[0].id > lastTweetID) {
+      send(twitterbot(tweet));
+      lastTweetID = tweet[0].id;
+    }
   }
 });
 

@@ -3,12 +3,19 @@ module.exports = function (req, res, next) {
   var botPayload;
   var botText = req[0].text;
 
-  botPayload = {
-  	"username" : "trafficbot",
-  	"icon_emoji" : ":truck:",
-  	"channel" : "#bot-testing",
-  	"text" : botText
-  };
-
+  if (botText.match("(.*)I-95(.*)")) {
+    botPayload = {
+        "username" : "trafficbot",
+        "icon_emoji" : ":truck:",
+        "channel" : "#bot-testing",
+    };    
+  } else {
+    botPayload = {
+        "username" : "trafficbot",
+        "icon_emoji" : ":truck:",
+        "channel" : "#bot-testing",
+        "text" : botText
+    };
+  }
   return botPayload;
 };
