@@ -3,7 +3,8 @@ module.exports = function (req, res, next) {
   var botPayload;
   var botText = req[0].text;
 
-  if (botText.match("(.*)I-95(.*)")) {
+  if (botText.match("(.*)I-95(.*)") ||
+    (botText.match("(.*)Hilton Head Island(.*)"))) {
     botPayload = {
         "username" : "trafficbot",
         "icon_emoji" : ":truck:",
